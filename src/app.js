@@ -3,14 +3,23 @@ const { auth } = require("./middlewares/auth")
 
 const app = express();
 
-app.use('/admin', auth);
-
-app.get('/admin/getData', (req, res, next) => {
-    res.send("get all user data")
+app.get('/user', (req, res) =>{
+    throw new Error("error")
+    res.send("hi")
+    // try{
+    //     throw new Error("error")
+    //     res.send("hi")
+    // }catch(err) {
+    //     res.status(500).send("Internal server error");
+    // }
 })
 
-app.get('/admin/postData', (req, res, next) => {
-    res.send("post all user data")
+app.use('/', (err, req, res, next) => {
+
+    console.log('this block')
+    if(err) {
+        res.status(500).send("Internal server error 111");
+    }
 })
 
 app.listen(4000, ()=>{
