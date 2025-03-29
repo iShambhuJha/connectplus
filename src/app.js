@@ -4,16 +4,32 @@ const app = express();
 
 
 
-app.use("/user", (req, res) => {
-    res.send("user details not found")
+// app.use("/user", (req, res) => {
+//     res.send("user details not found")
+// })
+
+// app.use("/employee", (req, res) => {
+//     res.send("employee details not found")
+// })
+
+// app.use("/", (req, res)=>{
+//     res.send("Welcome to Node js server")
+// })
+
+app.get("/user", (req, res) =>{
+    res.send("Get all users...")
 })
 
-app.use("/employee", (req, res) => {
-    res.send("employee details not found")
+app.post("/user", (req, res) =>{
+    res.send("post all users...")
 })
 
-app.use("/", (req, res)=>{
-    res.send("Welcome to Node js server")
+app.delete("/user", (req, res) =>{
+    res.send("delete all users...")
+})
+
+app.use("/user", (req, res) =>{
+    res.send("all users...")
 })
 
 app.listen(4000, ()=>{
